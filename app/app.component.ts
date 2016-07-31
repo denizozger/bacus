@@ -5,12 +5,7 @@ import { PersonService } from './person.service';
 
 @Component({
   selector: 'my-app',
-  template: `
-  	<h1>Random person every {{intervalInSeconds}} second(s)</h1>
-  	<div><label>Name: </label>{{person.name}}</div>
-  	<div><label>Surname: </label>{{person.surname}}</div>
-  	<div><label>Gender: </label>{{person.gender}}</div>
-  	<div><label>Region: </label>{{person.region}}</div>`,
+  templateUrl: 'app/person.component.html',
 	providers: [PersonService]
 })
 export class AppComponent implements OnInit { 

@@ -33,7 +33,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  \t<h1>Random person every {{intervalInSeconds}} second(s)</h1>\n  \t<div><label>Name: </label>{{person.name}}</div>\n  \t<div><label>Surname: </label>{{person.surname}}</div>\n  \t<div><label>Gender: </label>{{person.gender}}</div>\n  \t<div><label>Region: </label>{{person.region}}</div>",
+            templateUrl: 'app/person.component.html',
             providers: [person_service_1.PersonService]
         }), 
         __metadata('design:paramtypes', [person_service_1.PersonService])
