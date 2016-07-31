@@ -9,15 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var person_service_1 = require('./person.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(personService) {
+        this.personService = personService;
+        this.person = {};
     }
+    AppComponent.prototype.getPerson = function () {
+        var _this = this;
+        this.personService
+            .getPerson()
+            .then(function (person) { return _this.person = person; })
+            .catch(function (error) { return _this.error = error; });
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.getPerson();
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>My First Angular 2 App</h1>'
+            template: "\n  \t<h1>Random person every few seconds</h1>\n  \t<div><label>Name: </label>{{person.name}}</div>\n  \t<div><label>Surname: </label>{{person.surname}}</div>\n  \t<div><label>Gender: </label>{{person.gender}}</div>\n  \t<div><label>Region: </label>{{person.region}}</div>",
+            providers: [person_service_1.PersonService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [person_service_1.PersonService])
     ], AppComponent);
     return AppComponent;
 }());
