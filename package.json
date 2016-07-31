@@ -2,11 +2,11 @@
   "name": "bacus",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "start": "node_modules/.bin/tsc && concurrently \"npm run node_modules/.bin/tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
-    "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
+    "postinstall": "node_modules/.bin/typings install",
+    "tsc": "node_modules/.bin/tsc",
+    "tsc:w": "node_modules/.bin/tsc -w",
     "typings": "node_modules/.bin/typings"
   },
   "license": "ISC",
