@@ -14,7 +14,7 @@ import { PersonService } from './person.service';
 	providers: [PersonService]
 })
 export class AppComponent implements OnInit { 
-	person: Person = {}
+	person: Person = { name: '', surname: '', gender: '', region: '' }
 	error: any;
 
   constructor(
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPerson();
+  	setInterval(() => this.getPerson(), 10000);
   }
   
 }

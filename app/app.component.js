@@ -13,7 +13,7 @@ var person_service_1 = require('./person.service');
 var AppComponent = (function () {
     function AppComponent(personService) {
         this.personService = personService;
-        this.person = {};
+        this.person = { name: '', surname: '', gender: '', region: '' };
     }
     AppComponent.prototype.getPerson = function () {
         var _this = this;
@@ -23,7 +23,8 @@ var AppComponent = (function () {
             .catch(function (error) { return _this.error = error; });
     };
     AppComponent.prototype.ngOnInit = function () {
-        this.getPerson();
+        var _this = this;
+        setInterval(function () { return _this.getPerson(); }, 2000);
     };
     AppComponent = __decorate([
         core_1.Component({
