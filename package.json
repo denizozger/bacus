@@ -7,7 +7,7 @@
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "node_modules/.bin/typings"
   },
   "license": "ISC",
   "dependencies": {
