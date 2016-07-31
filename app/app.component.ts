@@ -6,7 +6,7 @@ import { PersonService } from './person.service';
 @Component({
   selector: 'my-app',
   template: `
-  	<h1>Random person every few seconds</h1>
+  	<h1>Random person every {{intervalInSeconds}} second(s)</h1>
   	<div><label>Name: </label>{{person.name}}</div>
   	<div><label>Surname: </label>{{person.surname}}</div>
   	<div><label>Gender: </label>{{person.gender}}</div>
@@ -14,6 +14,7 @@ import { PersonService } from './person.service';
 	providers: [PersonService]
 })
 export class AppComponent implements OnInit { 
+	intervalInSeconds: 10;
 	person: Person = { name: '', surname: '', gender: '', region: '' }
 	error: any;
 
@@ -29,7 +30,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-  	setInterval(() => this.getPerson(), 10000);
+  	var self = this;
+  	(function getPersonInALoop() {
+  	    self.getPerson();
+  	    setTimeout(getPersonInALoop, self.intervalInSeconds * 1000);
+  	})();
   }
   
 }
