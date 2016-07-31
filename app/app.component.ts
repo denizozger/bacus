@@ -14,8 +14,8 @@ import { PersonService } from './person.service';
 	providers: [PersonService]
 })
 export class AppComponent implements OnInit { 
-	intervalInSeconds: 10;
-	person: Person = { name: '', surname: '', gender: '', region: '' }
+	intervalInSeconds: number = 10;
+	person: Person = { name: '', surname: '', gender: '', region: '' };
 	error: any;
 
   constructor(
